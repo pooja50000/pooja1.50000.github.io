@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pooja — Projects</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    /* Page-specific tweaks */
+    .projects-hero { margin-bottom: 18px; }
+    .projects-hero p { color: var(--muted); margin: 6px 0 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      display: flex; flex-direction: column; gap: 10px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.05);
+    }
+    .project img {
+      width: 100%; height: 180px; object-fit: cover;
+      border-radius: 12px; border: 1px solid var(--border);
+      background: #fafafa;
+    }
+    .project h3 { margin: 0 0 2px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 12px; padding: 4px 8px; border: 1px solid var(--border);
+      border-radius: 999px; color: var(--muted);
+    }
+    .actions { display: flex; gap: 10px; margin-top: auto; }
+    .actions .btn { padding: 8px 12px; border-radius: 10px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">Pooja</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="active" href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="mailto:your.email@uw.edu">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+  <section class="projects-hero">
+    <h1>Projects</h1>
+    <p>A few things I’ve built or contributed to recently.</p>
+  </section>
+
+  <div class="grid">
+
+    <!-- PROJECT 1 -->
+    <article class="project">
+      <img src="assets/img/projects/sage.png" alt="Sage App">
+      <div>
+        <h3>Sage — Social Platform for Elders</h3>
+        <p>Designed and developed <strong>Sage</strong>, a web application helping older adults stay
+          connected and reduce social isolation. The platform enables messaging, event sharing, and
+          virtual meetups through an intuitive and accessible interface built for simplicity and
+          inclusivity.</p>
+        <div class="tags">
+          <span class="tag">UX/UI</span>
+          <span class="tag">Accessibility</span>
+          <span class="tag">Human-Centered Design</span>
+          <span class="tag">Prototyping</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn secondary" href="#">Prototype</a>
+      </div>
+    </article>
+
+    <!-- PROJECT 2 -->
+    <article class="project">
+      <img src="assets/img/projects/edu4all.png" alt="Edu4All Resource Platform">
+      <div>
+        <h3>Edu4All — Student Resource Platform</h3>
+        <p>Created <strong>Edu4All</strong>, a platform designed to help incoming and new college
+          students access essential campus resources, peer mentorship, and academic support without
+          feeling overwhelmed. Focused on usability and inclusive onboarding through clear UI and
+          organized navigation.</p>
+        <div class="tags">
+          <span class="tag">Figma</span>
+          <span class="tag">UI Design</span>
+          <span class="tag">Accessibility</span>
+          <span class="tag">User Research</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn secondary" href="#">Case Study</a>
+      </div>
+    </article>
+
+    <!-- PROJECT 3 -->
+    <article class="project">
+      <img src="assets/img/projects/dubstop.png" alt="Dubstop Grocery Database">
+      <div>
+        <h3>Dubstop Grocery Database</h3>
+        <p>INFO 330 group project building a relational database for a 6-store grocery chain. Modeled
+          entities for inventory, suppliers, orders, and employees using SQL and ER diagrams, enabling
+          insights on inventory tracking, customer behavior, and supplier performance.</p>
+        <div class="tags">
+          <span class="tag">SQL</span>
+          <span class="tag">Databases</span>
+          <span class="tag">ERD Design</span>
+          <span class="tag">Data Modeling</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn secondary" href="#">Code</a>
+      </div>
+    </article>
+
+    <!-- PROJECT 4 -->
+    <article class="project">
+      <img src="assets/img/projects/connectfour.png" alt="Connect Four Java Game">
+      <div>
+        <h3>Connect Four — Java Strategy Game</h3>
+        <p>CSE 123 project implementing a two-player abstract strategy game using object-oriented
+          principles. Built methods for move validation, alternating turns, and win detection using
+          loops and conditionals within the AbstractStrategyGame framework.</p>
+        <div class="tags">
+          <span class="tag">Java</span>
+          <span class="tag">OOP</span>
+          <span class="tag">Algorithms</span>
+          <span class="tag">Game Logic</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn secondary" href="#">Code</a>
+      </div>
+    </article>
+
+    <!-- PROJECT 5 -->
+    <article class="project">
+      <img src="assets/img/projects/stat311.png" alt="STAT 311 R Analysis">
+      <div>
+        <h3>Statistical Analysis with R</h3>
+        <p>Completed data analysis projects using chi-squared tests, probability distributions, and
+          hypothesis testing in R. Generated reproducible visualizations and reports for data-driven
+          decision making and quantitative storytelling.</p>
+        <div class="tags">
+          <span class="tag">R</span>
+          <span class="tag">Statistics</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">Visualization</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn secondary" href="#">Code</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> Pooja Gottepu</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
