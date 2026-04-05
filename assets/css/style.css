@@ -85,9 +85,8 @@ body{
   .cards{grid-template-columns:1fr}
 }
 **/
-
 :root{
-  --bg:       #fafafa;
+  --bg:       #f0f0f8;
   --ink:      #18181b;
   --muted:    #71717a;
   --brand:    #4f46e5;
