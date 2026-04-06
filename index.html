@@ -3,20 +3,291 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pooja's Portfolio</title>
-
+  <base href="/pooja1.50000.github.io/">
+  <title>Pooja Gottepu — Portfolio</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7ff;
+      font-family: 'DM Sans', sans-serif;
+      background: #0b1120;
+      color: #e8eaf0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+
+    /* subtle grid texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    /* ── HERO ── */
+    .hero { text-align: left; }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7b8cde;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: #7b8cde;
+    }
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #8b93b0;
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+    .hero-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #7b8cde;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .hero-links a:hover { color: #fff; }
+    .hero-links a svg {
+      width: 13px; height: 13px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    /* ── NAV CARDS ── */
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .nav-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 24px 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .nav-card:hover {
+      background: rgba(123,140,222,0.1);
+      border-color: rgba(123,140,222,0.35);
+      transform: translateY(-3px);
+    }
+    .nav-card-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7b8cde;
+    }
+    .nav-card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .nav-card-desc {
+      font-size: 0.8rem;
+      color: #6b7490;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .nav-card-arrow {
+      margin-top: 16px;
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .nav-card:hover .nav-card-arrow {
+      background: #7b8cde;
+      border-color: #7b8cde;
+    }
+    .nav-card-arrow svg {
+      width: 12px; height: 12px;
+      stroke: #7b8cde; fill: none;
+      stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+      transition: stroke 0.2s;
+    }
+    .nav-card:hover .nav-card-arrow svg { stroke: #fff; }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #3d4460;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 640px) {
+      .nav-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 360px) {
+      .nav-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <section class="hero">
+      <p class="hero-eyebrow">Portfolio — Pooja Gottepu</p>
+      <h1>Building websites, applications and more at the<br><em>intersection of people, business & tech</em></h1>
+      <p class="hero-sub">
+        Informatics student at UW exploring product management, data, and human-centered software.
+      </p>
+      <div class="hero-links">
+        <a href="https://github.com/pooja50000" target="_blank" rel="noopener noreferrer">
+          GitHub
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/pooja-gottepu-29ab17291" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+        <a href="mailto:pooja515@uw.edu">
+          pooja515@uw.edu
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <div class="nav-grid">
+
+      <a class="nav-card" href="aboutme.html">
+        <span class="nav-card-label">01</span>
+        <span class="nav-card-title">About Me</span>
+        <span class="nav-card-desc">My background, skills, and what I'm working toward.</span>
+        <span class="nav-card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+
+      <a class="nav-card" href="projects.html">
+        <span class="nav-card-label">02</span>
+        <span class="nav-card-title">Projects</span>
+        <span class="nav-card-desc">Things I've built from apps, tools, and coursework.</span>
+        <span class="nav-card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+
+      <a class="nav-card" href="writing.html">
+        <span class="nav-card-label">03</span>
+        <span class="nav-card-title">Writing</span>
+        <span class="nav-card-desc">Essays and literature reviews on AI and technology.</span>
+        <span class="nav-card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+
+      <a class="nav-card" href="https://github.com/pooja50000" target="_blank">
+        <span class="nav-card-label">04</span>
+        <span class="nav-card-title">GitHub</span>
+        <span class="nav-card-desc">My open source work and code repositories.</span>
+        <span class="nav-card-arrow">
+          <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </span>
+      </a>
+
+    </div>
+
+    <p class="footer">© <span id="year"></span> Pooja Gottepu</p>
+
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
+
+<!---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pooja's Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap');
+
+    body {
+      font-family: 'DM Sans', Arial, sans-serif;
+      background: linear-gradient(to right, #ffe4f0 50%, #e4eeff 50%);
       color: #222;
       text-align: center;
-      padding: 60px;
+      padding: 60px 40px;
       margin: 0;
     }
 
     h1 { color: #5a5aff; }
 
+    /**
     nav {
       margin-bottom: 30px;
     }
@@ -31,15 +302,19 @@
       font-weight: 600;
       border: 1px solid #dadaff;
       background: white;
+      transition: background 0.2s, box-shadow 0.2s;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      background: #f0f0ff;
+      box-shadow: 0 2px 8px rgba(90,90,255,0.12);
     }
+
+    **/
 
     .card {
       max-width: 700px;
-      margin: 0 auto;
+      margin: 0 auto 40px auto;
       background: white;
       padding: 28px;
       border-radius: 16px;
@@ -48,64 +323,103 @@
 
     .links a {
       margin: 0 10px;
+      color: #5a5aff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Big nav boxes */
+    .nav-boxes {
+      max-width: 700px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .nav-box {
+      background: white;
+      border: 1px solid #dadaff;
+      border-radius: 16px;
+      padding: 36px 20px;
+      text-decoration: none;
+      color: #5a5aff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+
+    .nav-box:hover {
+      background: #f0f0ff;
+      box-shadow: 0 4px 16px rgba(90,90,255,0.15);
+      transform: translateY(-3px);
+    }
+
+    .nav-box .icon {
+      font-size: 2rem;
+    }
+
+    .nav-box .label {
+      font-size: 1rem;
+      color: #444;
+      font-weight: 400;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 560px) {
+      .nav-boxes {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="aboutme.html">About Me</a>
-    <a href="projects.html">Projects</a>
-  </nav>
 
   <div class="card">
-    <h1>Welcome to Pooja’s Portfolio 🌸</h1>
-    <p>This website is hosted using <strong>GitHub Pages</strong>!</p>
-    <p>More updates coming soon...</p>
-
+    <h1>Welcome to Pooja's Portfolio </h1>
+  
     <div class="links">
-      <a href="aboutme.html">Go to About Me</a>
-      <a href="projects.html">Go to Projects</a>
+      
       <a href="https://github.com/pooja50000" target="_blank" rel="noopener noreferrer">Visit my GitHub</a>
     </div>
   </div>
-</body>
-</html>
-
-
-
+-->
+  
 <!--
+  Big navigation boxes 
+  <div class="nav-boxes">
+    <a href="index.html" class="nav-box">
+     <span class="icon">🏠</span>
+      Home
+      <span class="label">Back to start</span>
+    </a>
+    <a href="aboutme.html" class="nav-box">
+   <span class="icon">👩‍💻</span> 
+      About Me
+      <span class="label">My story & skills</span>
+    </a>
+    <a href="projects.html" class="nav-box">
+      <span class="icon">🗂️</span> 
+      Projects
+      <span class="label">What I've built</span>
+    </a>
+    <a href="writings.html" class="nav-box">
+    <span class="icon">✍️</span> 
+      Writings
+      <span class="label">Essays & research</span>
+    </a>
+    
+  </div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pooja's Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7ff;
-      color: #222;
-      text-align: center;
-      padding: 60px;
-    }
-    h1 {
-      color: #5a5aff;
-    }
-    a {
-      color: #5a5aff;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-  <h1>Welcome to Pooja’s Portfolio 🌸</h1>
-  <p>This website is hosted using <strong>GitHub Pages</strong>!</p>
-  <p>More updates coming soon...</p>
-  <a href="https://github.com/pooja50000">Visit my GitHub</a>
 </body>
 </html>
-
 -->
