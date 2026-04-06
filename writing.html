@@ -5,122 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <base href="/pooja1.50000.github.io/">
   <title>Pooja — Writing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"/>
-  <style>
-    .writing-hero { margin-bottom: 24px; }
-    .writing-hero p { color: var(--muted); margin: 6px 0 0; }
-
-    .writing-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .writing-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px 20px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      box-shadow: 0 10px 24px rgba(0,0,0,.05);
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-    }
-    .writing-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(90,90,255,0.12);
-      border-color: #c0c0ff;
-    }
-
-    .card-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .card-num {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted, #888);
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .tag {
-      font-size: 12px;
-      padding: 3px 9px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--muted, #888);
-    }
-
-    .writing-card h3 {
-      font-size: 1.1rem;
-      line-height: 1.35;
-      margin: 0;
-      color: #1a1a2e;
-    }
-
-    .writing-card p {
-      font-size: 0.875rem;
-      line-height: 1.65;
-      color: var(--muted, #666);
-      margin: 0;
-      flex-grow: 1;
-    }
-
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-      margin-top: auto;
-    }
-    .card-type {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--muted, #888);
-    }
-    .card-cta {
-      font-size: 12px;
-      font-weight: 600;
-      color: #5a5aff;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      transition: gap 0.2s;
-    }
-    .writing-card:hover .card-cta { gap: 8px; }
-    .card-cta svg {
-      width: 13px; height: 13px;
-      stroke: #5a5aff; fill: none;
-      stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
-    }
-
-    .card-img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: #f4f4f8;
-      display: block;
-    }
-
-    @media (max-width: 760px) {
-      .writing-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
 
@@ -146,7 +33,7 @@
     <div class="writing-grid">
 
       <!-- CARD 1 -->
-      <a class="writing-card" href="mentalhealthcareAI.pdf" target="_blank">
+      <a class="writing-card" href="assets/pdf/mentalhealthcareAI.pdf" target="_blank">
         <img class="card-img" src="assets/img/writing/mentalhealthcareAI.jpg" alt="AI in Mental Health Care">
         <div class="card-meta">
           <span class="card-num">01</span>
@@ -172,7 +59,7 @@
       </a>
 
       <!-- CARD 2 -->
-      <a class="writing-card" href="globalPolicyAI.html" target="_blank">
+      <a class="writing-card" href="assets/pdf/globalPolicyAI.pdf" target="_blank">
         <img class="card-img" src="assets/img/writing/globalPolicyAI.jpg" alt="International Policy of AI">
         <div class="card-meta">
           <span class="card-num">02</span>
@@ -198,9 +85,8 @@
       </a>
 
       <!-- CARD 3 -->
-      <a class="writing-card" href="dangersofAI.html" target="_blank">
-
-        <img src="assets/img/writing/dangersofAI.jpg" alt="Dangers of AI">
+      <a class="writing-card" href="assets/pdf/dangersofAI.pdf" target="_blank">
+        <img class="card-img" src="assets/img/writing/dangersofAI.jpg" alt="Dangers of AI">
         <div class="card-meta">
           <span class="card-num">03</span>
         </div>
@@ -225,8 +111,7 @@
       </a>
 
       <!-- CARD 4 -->
-      <a class="writing-card" href="futureAI.html" target="_blank">
-        <!-- ✏️ CARD 4 IMAGE — replace src with your image path or URL -->
+      <a class="writing-card" href="assets/pdf/futureAI.pdf" target="_blank">
         <img class="card-img" src="assets/img/writing/futureAI.jpg" alt="Future of AI">
         <div class="card-meta">
           <span class="card-num">04</span>
