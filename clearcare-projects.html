@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ClearCare — Capstone Reflection | Pooja</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --card: #ffffff;
+      --border: #e8e6e1;
+      --text: #1a1a18;
+      --muted: #6b6963;
+      --accent: #3d6b4f;
+      --accent-light: #eef4f0;
+      --accent-mid: #c2d9c9;
+      --tag-bg: #f3f1ed;
+      --radius-card: 18px;
+      --radius-tag: 999px;
+      --shadow: 0 8px 28px rgba(0,0,0,.07);
+      --shadow-hover: 0 16px 40px rgba(0,0,0,.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,248,.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      max-width: 960px; margin: auto;
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--text); text-decoration: none; }
+    .nav ul { list-style: none; display: flex; gap: 24px; }
+    .nav ul a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .nav ul a:hover, .nav ul a.active { color: var(--text); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 60px 24px 100px; }
+
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-mid);
+      color: var(--accent);
+      font-size: 12px; font-weight: 500; letter-spacing: .03em;
+      padding: 4px 12px; border-radius: var(--radius-tag);
+      margin-bottom: 18px;
+    }
+    .status-badge::before {
+      content: '';
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .5; transform: scale(.8); }
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.2; margin-bottom: 12px;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero .subtitle { color: var(--muted); max-width: 560px; margin-bottom: 28px; }
+
+    .link-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 52px; }
+    .link-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; border-radius: 10px; font-size: 13px; font-weight: 500;
+      text-decoration: none; transition: all .2s;
+      border: 1px solid var(--border);
+    }
+    .link-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .link-btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .link-btn.primary:hover { background: #2e5139; }
+    .link-btn.secondary { background: var(--card); color: var(--text); }
+    .link-btn.secondary:hover { background: var(--tag-bg); }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 44px 0; }
+
+    .section-label {
+      font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; margin-bottom: 14px;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .tag {
+      font-size: 12px; padding: 4px 10px;
+      background: var(--tag-bg); border: 1px solid var(--border);
+      border-radius: var(--radius-tag); color: var(--muted);
+    }
+
+    .reflect-grid {
+      display: grid; gap: 16px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 600px) { .reflect-grid { grid-template-columns: 1fr; } }
+
+    .reflect-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transition: box-shadow .25s, transform .25s;
+    }
+    .reflect-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .reflect-card.wide { grid-column: 1 / -1; }
+
+    .reflect-card .card-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+    }
+    .reflect-card .card-icon svg { width: 18px; height: 18px; color: var(--accent); }
+    .reflect-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+    .reflect-card p, .reflect-card li { font-size: 14px; color: #3a3a38; line-height: 1.65; }
+    .reflect-card ul { padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+
+    .highlight-quote {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 14px; color: #2e4a38; font-style: italic;
+    }
+
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid; grid-template-columns: 28px 1fr; gap: 14px;
+      padding-bottom: 22px; position: relative;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--accent-light); border: 2px solid var(--accent-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: var(--accent);
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .timeline-item:not(:last-child) .timeline-dot::after {
+      content: '';
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      width: 2px; height: calc(100% + 22px - 28px);
+      background: var(--border);
+    }
+    .timeline-content { padding-top: 4px; }
+    .timeline-content h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .timeline-content p { font-size: 13.5px; color: var(--muted); }
+
+    footer {
+      text-align: center; padding: 28px;
+      font-size: 13px; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">Pooja</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutme.html">About</a></li>
+      <li><a class="active" href="projects.html">Projects</a></li>
+      <li><a href="writing.html">Writing</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="status-badge">In Progress · Spring 2025 Capstone</div>
+    <h1>ClearCare — <em>Medical Reports,<br>Finally in Plain Language</em></h1>
+    <p class="subtitle">
+      An AI-powered health literacy tool that translates complex clinical and lab reports into accessible, multilingual summaries — built for patients ages 18–26 navigating healthcare alone for the first time.
+    </p>
+
+    <!-- Link buttons -->
+    <div class="link-row">
+      <a class="link-btn primary" href="https://www.figma.com/YOUR_LINK_HERE" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 3v18M3 12h18"/></svg>
+        Figma Demo
+      </a>
+      <a class="link-btn secondary" href="https://github.com/YOUR_REPO_HERE" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub Repo
+      </a>
+    </div>
+  </div>
+
+  <!-- Tags -->
+  <div class="tags">
+    <span class="tag">Health Literacy</span>
+    <span class="tag">AI / LLM</span>
+    <span class="tag">UX Research</span>
+    <span class="tag">React</span>
+    <span class="tag">Multilingual</span>
+    <span class="tag">HIPAA Compliance</span>
+    <span class="tag">Data Visualization</span>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Goals -->
+  <div class="section-label">The Project</div>
+  <h2>Goals &amp; Problem Space</h2>
+  <p style="color:#3a3a38; margin-bottom:16px;">Young adults navigating healthcare independently often receive clinical and lab reports filled with jargon they can't decipher — and no accessible way to make sense of them. ClearCare addresses this gap by generating AI-powered, plain-language summaries of uploaded medical documents, paired with interactive visualizations and multilingual support.</p>
+
+  <div class="highlight-quote">
+    "A lot of healthcare was not designed with the user care aspect in mind. ClearCare was built to extend that care beyond the physical space."
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Reflection -->
+  <div class="section-label">Reflection</div>
+  <h2>Process, Learnings &amp; Contributions</h2>
+  <div class="reflect-grid" style="margin-top: 20px;">
+
+    <!-- Scope -->
+    <div class="reflect-card wide">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </div>
+      <h3>Scope</h3>
+      <p>The scope of our MVP was to develop a working prototype that helps patients ages 18&ndash;26 better understand medical terminology in their clinical and laboratory reports. We identified several core features essential for addressing this challenge: generating an AI-powered summary of uploaded medical reports, providing plain-language explanations for complex medical terms, offering hover or click-to-define functionality for terminology, and supporting multilingual translation. We also prioritized visualizations to help users interpret health indicators and source-level indicators to ensure explanations are supported by reliable medical references.</p>
+    </div>
+
+    <!-- Functionality -->
+    <div class="reflect-card wide">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Functionality</h3>
+      <ul>
+        <li><strong>AI Summary:</strong> After scanning the uploaded report, the system generates a summary highlighting the most important information so users don&rsquo;t need to read the entire document themselves.</li>
+        <li><strong>Plain-Language Explanations:</strong> Medical terms are broken down into simple, easy-to-understand language accessible to anyone regardless of health literacy level.</li>
+        <li><strong>Multilingual Translation:</strong> Users can translate explanations into their preferred language, improving accessibility for international users.</li>
+        <li><strong>Data Visualization:</strong> The system generates graphs to display health indicators, helping users quickly understand results rather than parsing complex numbers or medical terms.</li>
+        <li><strong>Reliability:</strong> All explanations are supported by trusted sources such as peer-reviewed research and clinical guidelines, with clickable references for deeper reading.</li>
+      </ul>
+    </div>
+
+    <!-- Usability -->
+    <div class="reflect-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Usability</h3>
+      <p>We emphasized accessibility features &mdash; multilingual translation support and simplified language &mdash; throughout the design process. Recognizing that our primary stakeholders include non-English speakers and individuals with low health literacy, we designed ClearCare to be approachable and easy to navigate without prior technical or medical knowledge. A lot of healthcare was not designed with the user care aspect in mind; ClearCare extends that care beyond the physical space.</p>
+    </div>
+
+    <!-- Validation -->
+    <div class="reflect-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <h3>Validation</h3>
+      <p>We entered user validation with three assumptions: that users would trust the information presented, find the features accessible, and see ClearCare as essential to their care. Feedback confirmed users appreciated the simplified explanations, but surfaced concerns around HIPAA compliance and design inconsistencies. In response, we standardized range graphs across the results page, added citation links to generated content, and unified design choices across the product to build a more trustworthy and consistent user journey.</p>
+    </div>
+
+    <!-- My Individual Contributions -->
+    <div class="reflect-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <h3>My Individual Contributions</h3>
+      <ul>
+        <li>[ Describe your specific role — e.g. led user research, designed the results page, built the translation feature ]</li>
+        <li>[ Add another contribution ]</li>
+        <li>[ Add another contribution ]</li>
+      </ul>
+    </div>
+
+    <!-- Key Takeaways -->
+    <div class="reflect-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li><strong>Trust is built through consistency.</strong> Design and content inconsistencies were the biggest trust-breakers in user testing — especially in a health context.</li>
+        <li><strong>Compliance can't be an afterthought.</strong> HIPAA concerns surfaced early and reinforced that privacy architecture needs to be foundational from day one.</li>
+        <li><strong>Accessibility is a spectrum.</strong> Designing for low health literacy and non-English speakers pushed us to question every default UX assumption we had.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Next Steps -->
+  <div class="section-label">What's Next</div>
+  <h2>Next Steps</h2>
+  <div class="timeline" style="margin-top: 20px;">
+    <div class="timeline-item">
+      <div class="timeline-dot">1</div>
+      <div class="timeline-content">
+        <h4>Technical Roadmap &amp; Stability</h4>
+        <p>Improve document parsing, modularize the codebase, and stabilize the AI pipeline before introducing new features like user accounts and report history — minimizing scope creep.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot">2</div>
+      <div class="timeline-content">
+        <h4>Competitive Audit</h4>
+        <p>Map ClearCare's market differentiation against general-purpose AI tools. Prioritize features that current solutions lack: source-backed explanations, contextual visualizations, and multilingual accessibility.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot">3</div>
+      <div class="timeline-content">
+        <h4>HIPAA-First Architecture</h4>
+        <p>Consult industry professionals, implement secure document upload guidelines, and establish a data minimization policy — reports not retained beyond the active session by default.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Pooja Gottepu</p>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
