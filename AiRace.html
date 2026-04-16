@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Global AI Race — Pooja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f8f5;
+      --text: #1a1a1a;
+      --muted: #888;
+      --accent: #2e2e2e;
+      --tag-bg: #efefec;
+      --tag-color: #555;
+      --border: #e4e3df;
+      --pullquote-border: #1a1a1a;
+      --link: #1a1a1a;
+      --nav-bg: #f9f8f5;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav ul a {
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .nav ul a:hover,
+    .nav ul a.active {
+      color: var(--text);
+    }
+
+    /* MAIN */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      flex: 1;
+    }
+
+    /* HERO */
+    .essay-hero {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .essay-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+
+    .essay-back:hover { color: var(--text); }
+
+    .essay-back svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .essay-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .essay-hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+
+    .essay-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .essay-date {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--tag-bg);
+      color: var(--tag-color);
+    }
+
+    /* BODY */
+    .essay-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #2a2a2a;
+      line-height: 1.8;
+    }
+
+    .essay-body p {
+      margin-bottom: 1.5em;
+    }
+
+    .essay-body strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .essay-body em {
+      font-style: italic;
+    }
+
+    /* PULL QUOTE */
+    .essay-pullquote {
+      border-left: 2.5px solid var(--pullquote-border);
+      margin: 40px 0;
+      padding: 4px 0 4px 28px;
+    }
+
+    .essay-pullquote p {
+      font-size: 1.15rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .site-footer p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .nav ul { gap: 16px; }
+      .essay-hero { padding: 36px 0 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="#">Pooja</a>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a class="active" href="#">Writing</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <div class="essay-hero">
+      <a class="essay-back" href="#">
+        <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Writing
+      </a>
+      <div class="essay-label">Essay &nbsp;·&nbsp; 05</div>
+      <h1>The Global AI Race Isn't Just About Technology Anymore</h1>
+      <div class="essay-meta">
+        <span class="essay-date">April 16, 2026</span>
+        <div class="tags">
+          <span class="tag">AI</span>
+          <span class="tag">Policy</span>
+          <span class="tag">Geopolitics</span>
+          <span class="tag">Technology</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="essay-body">
+
+      <p>For years, the story of artificial intelligence was simple: faster models, bigger datasets, more compute. Today, that story has split into something far more complex and far more consequential. We are now living through two parallel global races: one for technological dominance, and one for governance and control. These races are deeply intertwined, and increasingly in tension with each other.</p>
+
+      <p>When the EU AI Act passed, it marked the first serious attempt to comprehensively regulate AI. But instead of becoming a global standard, it highlighted just how divided the world really is. Europe has adopted a structured, risk-based approach; Japan favors light-touch cooperative governance; China pursues state-driven control with measures like mandatory AI labeling; while countries like India, Brazil, and Argentina are still experimenting. The result isn't convergence; it's a patchwork system of competing philosophies that creates regulatory arbitrage, inconsistent safety standards, and deep uncertainty for companies operating globally.</p>
+
+      <p>Here's the twist: even as regulation spreads, it's also softening. The EU is considering delaying parts of its own AI law, and the U.S., Canada, and Australia are sounding alarms about overregulation. Governments are increasingly prioritizing startup growth, investment, and global competitiveness over precaution. Countries are asking not just "How do we control AI?" but "How do we win?" Regulation, it turns out, is only half the story. The other half is infrastructure. Nations are racing to become AI hubs, pouring billions into data centers, compute capacity, and talent pipelines — from Brazil's sweeping investment plans to Gulf states building frontier-scale compute facilities. AI is now industrial policy, the same playbook once used for oil, manufacturing, and semiconductors.</p>
+
+      <p>Because formal legislation moves slowly while AI does not, a different form of governance is quietly stepping in: standards. Voluntary safety frameworks, technical benchmarks, and industry guidelines are faster and more flexible than laws — though they come with an obvious tradeoff: they're easier to ignore. Meanwhile, one of the most consequential unsettled questions remains whether AI can legally train on copyrighted data. The U.S. is leaning toward fair use, Japan and Israel are more permissive, and others are still debating a legal ambiguity that could reshape entire business models.</p>
+
+      <div class="essay-pullquote">
+        <p>Power doesn't enforce AI rules — legitimacy does. If countries and companies believe rules are valid, they follow them; if not, they don't.</p>
+      </div>
+
+      <p>Beneath all the policy debates lies a more unsettling concern. AI is not just an economic tool — it is becoming a security risk. Experts warn of two major dangers: AI proliferation, which could enable chemical weapon design, synthetic pathogens, and autonomous cyberattacks; and loss of control, as advanced systems already exhibit deceptive behavior, self-preservation tendencies, and attempts to bypass shutdown mechanisms. Leading figures like Dario Amodei and Yoshua Bengio have openly warned that risks are accelerating faster than our ability to manage them, shifting AI from a policy issue to a national security priority.</p>
+
+      <p>This raises an uncomfortable reality: the companies building AI are also the ones best positioned to control it. Governments are moving slowly and global agreements are nearly nonexistent, so a new model is emerging. industry-led safety coalitions, shared testing standards, and joint security research. It's not ideal, but it may be necessary in the short term. Global AI governance keeps failing for three structural reasons: U.S.-China geopolitical competition limits cooperation, international institutions are slow and divided, and AI itself is fast-moving, cross-sector, and hard to define.</p>
+
+      <p>Rather than a single global regulator, what's emerging is a "regime complex" — an overlapping network of governments, companies, standards bodies, and international partnerships that favors coordination over control and incremental progress over grand treaties. Messy, yes, but likely the only viable path. Meanwhile, the U.S. is moving aggressively on internal AI adoption, with agencies like the State Department building AI-powered tools for crisis response and predictive diplomacy — though this comes with its own risks around overreliance, data quality, and security vulnerabilities.</p>
+
+      <p>Across all of it, one fundamental tension keeps surfacing: innovation versus safety, moving fast versus controlling risk, competing globally versus coordinating internationally. There is no clean resolution — only tradeoffs. We are entering a phase where AI governance is fragmented, regulation is uneven, and technology is accelerating faster than the institutions meant to manage it. Perhaps most importantly, the world does not yet have a system capable of managing AI at the scale it is being developed. The future of AI won't be decided by technology alone. It will be shaped by how well — or how poorly — we navigate the space between competition and cooperation, innovation and control, power and legitimacy.</p>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Pooja Gottepu</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
