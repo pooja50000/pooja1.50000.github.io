@@ -9,33 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
-    body { background: #f5efe6; }
+    body { background: #f5efe6; color: #3d2e20; }
 
-    .ideas-hero { margin-bottom: 32px; }
-    .ideas-hero p { color: #7a6a58; margin: 6px 0 0; max-width: 600px; }
-
-    .ideas-section { margin-bottom: 36px; }
-    .ideas-section h2 {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #a08c78;
-      margin-bottom: 14px;
-      border-bottom: 1px solid #e0d4c4;
-      padding-bottom: 6px;
-    }
-
-    .ideas-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-    .ideas-list li {
-      background: #fffaf5;
-      border: 1px solid #e8ddd0;
-      border-radius: 12px;
-      padding: 14px 18px;
-      color: #3d2e20;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    .ideas-list li span.emoji { margin-right: 10px; }
+    .ideas-hero { margin-bottom: 36px; }
+    .ideas-hero h1 { color: #3d2e20; }
+    .ideas-hero p { color: #7a6a58; margin: 8px 0 0; max-width: 620px; font-size: 15px; line-height: 1.7; }
 
     .back-link {
       display: inline-block;
@@ -45,6 +23,28 @@
       text-decoration: none;
     }
     .back-link:hover { color: #3d2e20; }
+
+    .ideas-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 720px;
+    }
+
+    .ideas-list li {
+      background: #fffaf5;
+      border: 1px solid #e8ddd0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .site-header, .nav a, .brand { color: #3d2e20 !important; }
+    .site-footer p { color: #a08c78; }
   </style>
 </head>
 <body>
@@ -66,54 +66,24 @@
     <a href="writing.html" class="back-link">← Back to Writing</a>
 
     <section class="ideas-hero">
-      <h1>AI Ideas List</h1>
-      <p>A running list of places where I think AI could make everyday life meaningfully easier, safer, or more human. Updated as I think of them.</p>
+      <h1>AIdeas 💡</h1>
+      <p>A running list of places where I think AI could make life easier, safer, or more thoughtful. I'm constantly noticing gaps in everyday systems and thinking about how smarter design could fill them.</p>
     </section>
 
-    <div class="ideas-section">
-      <h2>Health & Wellness</h2>
-      <ul class="ideas-list">
-        <li><span class="emoji">🩺</span>AI that reads your lab results and explains them in plain language — what's flagged, what it means, what to ask your doctor.</li>
-        <li><span class="emoji">💊</span>Medication interaction checker that runs in real time as prescriptions are added, flagging conflicts before they reach the patient.</li>
-        <li><span class="emoji">🧠</span>Mental health check-ins embedded into daily apps (calendar, notes) that detect stress patterns and suggest micro-interventions.</li>
-      </ul>
-    </div>
-
-    <div class="ideas-section">
-      <h2>Education</h2>
-      <ul class="ideas-list">
-        <li><span class="emoji">📚</span>Personalized tutors that adapt explanations to how each student actually learns — not just difficulty level, but style and pace.</li>
-        <li><span class="emoji">✍️</span>Writing feedback tools that teach revision skills rather than just correcting, so students learn why a change improves the work.</li>
-        <li><span class="emoji">🌐</span>Real-time translation of lectures and materials for non-native speakers, preserving tone and technical accuracy.</li>
-      </ul>
-    </div>
-
-    <div class="ideas-section">
-      <h2>Safety & Accessibility</h2>
-      <ul class="ideas-list">
-        <li><span class="emoji">🦯</span>AI navigation for visually impaired users that describes environments conversationally, not just turn-by-turn.</li>
-        <li><span class="emoji">🚨</span>Community safety tools that identify hazardous road conditions or infrastructure issues from crowd-sourced photos before accidents happen.</li>
-        <li><span class="emoji">🏠</span>Smart home systems that learn the routines of elderly individuals and alert family if something seems off — without being invasive.</li>
-      </ul>
-    </div>
-
-    <div class="ideas-section">
-      <h2>Everyday Life</h2>
-      <ul class="ideas-list">
-        <li><span class="emoji">🛒</span>Grocery planning that accounts for what's already in your fridge, your dietary goals, and what's on sale — and generates a meal plan around it.</li>
-        <li><span class="emoji">📬</span>Email triage that learns your priorities over time and surfaces what actually needs your attention versus what can wait.</li>
-        <li><span class="emoji">🌱</span>Carbon footprint tracking embedded in purchase flows — so you see the impact of choices at the moment you're making them.</li>
-      </ul>
-    </div>
-
-    <div class="ideas-section">
-      <h2>Civic & Government</h2>
-      <ul class="ideas-list">
-        <li><span class="emoji">🗳️</span>Plain-language summaries of ballot measures and legislation, generated from official text — no spin, just clarity.</li>
-        <li><span class="emoji">🏛️</span>AI that helps people navigate bureaucratic processes (benefits applications, permits, appeals) that are currently gatekept by complexity.</li>
-        <li><span class="emoji">📊</span>Public budget visualizers that translate city or state spending data into something citizens can actually understand and engage with.</li>
-      </ul>
-    </div>
+    <ul class="ideas-list">
+      <li>Airline seating that optionally takes passenger height, weight, and preferred seat neighbor gender into account during random seat assignment. This came to me when a flight attendant had to manually move my petite friend who had been seated between two grown men. A small data input at booking could automate this with dignity and without any mandatory disclosure.</li>
+      <li>Lab result readers that explain what is flagged, what it means, and what questions to bring to your doctor in plain language.</li>
+      <li>Medication conflict checkers that run in real time as prescriptions are added to a patient profile.</li>
+      <li>Mental health check-ins that live inside apps people already use daily and surface patterns over time without requiring the user to seek anything out.</li>
+      <li>Personalized tutors that adapt to how a student actually processes information, not just how fast they move through content.</li>
+      <li>Writing feedback tools that explain why a revision improves the work rather than just making the change for you.</li>
+      <li>Navigation tools for visually impaired users that describe environments conversationally rather than with rigid turn-by-turn instructions.</li>
+      <li>Infrastructure hazard detection from crowd-sourced photos that flags dangerous road or building conditions before an accident happens.</li>
+      <li>Grocery planning that accounts for what is already in your fridge, your dietary goals, and current sales.</li>
+      <li>Plain-language summaries of ballot measures written directly from official legislative text with no editorial framing.</li>
+      <li>Tools that help people navigate bureaucratic processes like benefits applications or permit appeals that are currently inaccessible due to complexity.</li>
+      <li>Carbon footprint context shown at the point of purchase so the environmental impact of a choice is visible in the moment it is made.</li>
+    </ul>
 
   </main>
 
