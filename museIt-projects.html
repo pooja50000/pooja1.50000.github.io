@@ -10,57 +10,82 @@
   <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
 
+/* Override dark navy theme with MuseIt purples */
+    :root {
+      --bg:     #261922;
+      --ink:    #FCFCFE;
+      --muted:  #c9a8be;
+      --brand:  #906086;
+      --border: #62475A;
+      --card:   rgba(98,71,90,0.5);
+    }
+ 
+    body {
+      background: #261922 !important;
+    }
+ 
+    body::before {
+      background-image:
+        linear-gradient(rgba(144,96,134,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(144,96,134,0.06) 1px, transparent 1px) !important;
+    }
+ 
+    .site-header {
+      background: rgba(38,25,34,0.85) !important;
+      border-bottom: 1px solid #62475A !important;
+    }
+ 
     .project-hero {
       padding: 56px 0 40px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #62475A;
       margin-bottom: 48px;
     }
-
+ 
     .project-back {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-size: 0.82rem;
-      color: var(--muted);
+      color: #c9a8be;
       text-decoration: none;
       margin-bottom: 28px;
       transition: color 0.2s;
     }
-    .project-back:hover { color: var(--ink); }
+    .project-back:hover { color: #FCFCFE; }
     .project-back svg {
       width: 14px; height: 14px;
       stroke: currentColor; fill: none;
       stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
     }
-
+ 
     .project-label {
       font-size: 0.75rem;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #906086;
       margin-bottom: 16px;
     }
-
+ 
     .project-hero h1 {
       font-size: clamp(1.75rem, 4vw, 2.4rem);
       font-weight: 600;
       letter-spacing: -0.03em;
       line-height: 1.2;
-      color: #ffffff;
+      color: #FCFCFE;
       margin-bottom: 16px;
       max-width: 640px;
     }
-
+ 
     .project-hero .subtitle {
       font-size: 1rem;
       font-weight: 300;
-      color: var(--muted);
+      color: #c9a8be;
       max-width: 560px;
       line-height: 1.7;
       margin-bottom: 24px;
     }
-
+ 
     .project-meta {
       display: flex;
       align-items: center;
@@ -68,79 +93,98 @@
       flex-wrap: wrap;
       margin-bottom: 28px;
     }
-
+ 
     .project-date {
       font-size: 0.82rem;
-      color: var(--muted);
+      color: #c9a8be;
     }
-
+ 
     .tags { display: flex; gap: 8px; flex-wrap: wrap; }
-
+ 
     .tag {
       font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.04em;
       padding: 3px 10px;
       border-radius: 20px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      background: rgba(255,255,255,0.03);
+      border: 1px solid #62475A;
+      color: #c9a8be;
+      background: rgba(144,96,134,0.1);
     }
-
+ 
     .project-links {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
     }
-
+ 
+    .btn {
+      background: #906086 !important;
+      border: none !important;
+      box-shadow: 0 2px 12px rgba(144,96,134,0.35) !important;
+    }
+    .btn:hover {
+      background: #7b4f71 !important;
+      box-shadow: 0 4px 20px rgba(144,96,134,0.45) !important;
+    }
+    .btn.secondary {
+      background: transparent !important;
+      border: 1px solid #62475A !important;
+      color: #906086 !important;
+    }
+    .btn.secondary:hover {
+      border-color: #906086 !important;
+      background: rgba(144,96,134,0.1) !important;
+    }
+ 
     /* HERO IMAGE */
     .project-cover {
       width: 100%;
       border-radius: 14px;
-      border: 1px solid var(--border);
+      border: 1px solid #62475A;
       margin-bottom: 56px;
       display: block;
-      background: rgba(255,255,255,0.04);
+      background: rgba(98,71,90,0.3);
       aspect-ratio: 16/7;
       object-fit: cover;
     }
-
+ 
     /* BODY */
     .project-body {
       font-size: 1rem;
       font-weight: 300;
-      color: var(--muted);
+      color: #c9a8be;
       line-height: 1.8;
       max-width: 680px;
     }
-
+ 
     .project-body p { margin-bottom: 1.5em; }
-
+ 
     .project-body strong {
       font-weight: 600;
-      color: #ffffff;
+      color: #FCFCFE;
     }
-
+ 
     /* SECTION HEADERS */
     .section-label {
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--brand);
+      color: #906086;
       margin-bottom: 12px;
       margin-top: 48px;
     }
-
+ 
     .project-body h2 {
       font-size: 1.2rem;
       font-weight: 600;
-      color: #ffffff;
+      color: #FCFCFE;
       letter-spacing: -0.02em;
       margin-bottom: 16px;
       margin-top: 0;
     }
-
+ 
     /* FEATURE CARDS */
     .feature-grid {
       display: grid;
@@ -148,63 +192,52 @@
       gap: 14px;
       margin: 24px 0 40px;
     }
-
+ 
     .feature-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
+      background: rgba(98,71,90,0.4);
+      border: 1px solid #62475A;
       border-radius: 12px;
       padding: 20px 18px;
       transition: background 0.2s, border-color 0.2s;
     }
     .feature-card:hover {
-      background: rgba(123,140,222,0.08);
-      border-color: rgba(123,140,222,0.3);
+      background: rgba(144,96,134,0.2);
+      border-color: #906086;
     }
-
+ 
     .feature-card h4 {
       font-size: 0.9rem;
       font-weight: 600;
-      color: #ffffff;
+      color: #FCFCFE;
       margin-bottom: 6px;
       letter-spacing: -0.01em;
     }
-
+ 
     .feature-card p {
       font-size: 0.82rem;
-      color: var(--muted);
+      color: #c9a8be;
       line-height: 1.6;
       margin: 0;
     }
-
-    /* TECH STACK */
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 20px 0 40px;
-    }
-
-    .tech-pill {
-      font-size: 0.8rem;
-      font-weight: 500;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(123,140,222,0.1);
-      border: 1px solid rgba(123,140,222,0.25);
-      color: var(--brand);
-    }
-
+ 
     /* DIVIDER */
     .divider {
       height: 1px;
-      background: var(--border);
+      background: #62475A;
       margin: 48px 0;
     }
-
+ 
+    .site-footer {
+      border-top: 1px solid #62475A !important;
+    }
+ 
     @media (max-width: 600px) {
       .feature-grid { grid-template-columns: 1fr; }
       .project-links { flex-direction: column; }
     }
+
+
+
   </style>
 </head>
 <body>
@@ -248,7 +281,7 @@
     </div>
 
     <!-- COVER IMAGE — replace src with a screenshot of the live app -->
-     <img class="project-cover" src="assets/img/img/projects/museItICON.jpg" alt="MuseIt app screenshot"> 
+     <!--img class="project-cover" src="assets/img/img/projects/museItICON.jpg" alt="MuseIt app screenshot"--> 
 
     <!--<img class="project-cover" src="img/favicon.ico" alt="MuseIt app screenshot">   -->
 
