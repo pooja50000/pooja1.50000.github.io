@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <base href="/pooja1.50000.github.io/">
+  <title>MuseIt — Pooja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+
+    .project-hero {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .project-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+    .project-back:hover { color: var(--ink); }
+    .project-back svg {
+      width: 14px; height: 14px;
+      stroke: currentColor; fill: none;
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .project-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .project-hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 16px;
+      max-width: 640px;
+    }
+
+    .project-hero .subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .project-date {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* HERO IMAGE */
+    .project-cover {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      margin-bottom: 56px;
+      display: block;
+      background: rgba(255,255,255,0.04);
+      aspect-ratio: 16/7;
+      object-fit: cover;
+    }
+
+    /* BODY */
+    .project-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    .project-body p { margin-bottom: 1.5em; }
+
+    .project-body strong {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    /* SECTION HEADERS */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 12px;
+      margin-top: 48px;
+    }
+
+    .project-body h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      margin-top: 0;
+    }
+
+    /* FEATURE CARDS */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 24px 0 40px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 18px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .feature-card:hover {
+      background: rgba(123,140,222,0.08);
+      border-color: rgba(123,140,222,0.3);
+    }
+
+    .feature-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* TECH STACK */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0 40px;
+    }
+
+    .tech-pill {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(123,140,222,0.1);
+      border: 1px solid rgba(123,140,222,0.25);
+      color: var(--brand);
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 48px 0;
+    }
+
+    @media (max-width: 600px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .project-links { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">Pooja</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutme.html">About</a></li>
+        <li><a class="active" href="projects.html">Projects</a></li>
+        <li><a href="writing.html">Writing</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <div class="project-hero">
+      <a class="project-back" href="projects.html">
+        <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Projects
+      </a>
+      <div class="project-label">Full-Stack Web App &nbsp;·&nbsp; INFO 340 &nbsp;·&nbsp; Winter 2026</div>
+      <h1>MuseIt — Community-Driven Music Discovery</h1>
+      <p class="subtitle">
+        A deployed full-stack web application that moves music discovery beyond the algorithm — letting real people curate and share songs by mood and time of day, building a human-centered alternative to platform-driven recommendations.
+      </p>
+      <div class="project-meta">
+        <span class="project-date">Deployed: March 2026</span>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">Full Stack</span>
+        </div>
+      </div>
+      <div class="project-links">
+        <a class="btn" href="https://info-340-project-a630f.web.app/" target="_blank">View Live App</a>
+        <a class="btn secondary" href="https://github.com/info340-wi26a/project-aluong04" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <!-- COVER IMAGE — replace src with a screenshot of the live app -->
+     <img class="project-cover" src="assets/img/projects/museitICON.jpg" alt="MuseIt app screenshot"> 
+
+    <!--<img class="project-cover" src="img/favicon.ico" alt="MuseIt app screenshot">   -->
+
+
+    <div class="project-body">
+
+      <p class="section-label">The Problem</p>
+      <h2>Algorithms don't know how you feel right now</h2>
+      <p>
+        Music platforms like Spotify and YouTube Music rely on taste profiles and editorial playlists; recommendations shaped by past listening behavior and music industry curation. That model misses something fundamental: the moment. What you want to hear at 2am on a slow Tuesday is different from what you want on a Friday afternoon, and no algorithm built on historical data captures that with any real precision.
+      </p>
+      <p>
+        MuseIt was built around a different premise: <strong>let people tell each other.</strong> A community-sourced library of songs, tagged by the people who actually listened to them, filtered by how you're feeling and when — no editorial gatekeeping, no algorithmic black box.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="section-label">Core Features</p>
+      <h2>What the app does</h2>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h4>ChimeTime</h4>
+          <p>Inspired by BeReal, a bell goes off once randomly throughout the day. When it does, users post the song they're listening to at that exact moment and select or type the activity they're currently doing. It's a live, honest snapshot of the community's listening world.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Send Songs with Notes</h4>
+          <p>Users can send any song to another user with a personal note attached; a more intentional, human alternative to playlist sharing.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Received Recommendations</h4>
+          <p>A dedicated inbox where users can view all songs sent to them by others, keeping recommendations personal and easy to revisit.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Pin Songs to Profile</h4>
+          <p>Users can pin songs to their profile to express their current taste and identity, making profiles a living reflection of who they are musically.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Music Preferences</h4>
+          <p>Users update their profile with the genres they love and the activities they typically do while listening. Adding this context  makes the community's data richer and recommendations more meaningful and relateable.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Community Song Discovery</h4>
+          <p>Browse the full library of community-submitted songs, filtered by mood and time of day, surfacing music recommended by real people rather than editorial algorithms.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="section-label">The Bigger Picture</p>
+      <h2>Why this matters</h2>
+      <p>
+        MuseIt is about more than music. It is a proof of concept for community-driven data as an alternative to opaque algorithmic systems, one where diverse voices, minority genres, and overlooked artists get visibility not because a platform decided to promote them, but because real people recommended them. Essentially, music is connection.
+      </p>
+      <p>
+        The ChimeTime feature in particular reflects something I find genuinely interesting as a product thinker: what happens when you remove the pressure of curation and just ask people to share what is actually happening right now? The result is more honest, more diverse, and more connected than anything an algorithm produces.
+      </p>
+      <p>
+        Building MuseIt end to end, from proposal to deployed product, reinforced how I think about product development: start with the human problem, design around genuine user behavior, and build systems that scale without losing the human layer. That thinking shapes everything I build.
+      </p>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Pooja Gottepu</p>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
