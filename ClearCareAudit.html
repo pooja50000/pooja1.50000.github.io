@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- base href="/pooja1.50000.github.io/" -->
+  <title>AI in the Workplace: Do We Have the Regulations We Need?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css"/>
+
+  </head>
+<body>
+ 
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">Pooja</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutme.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a class="active" href="writing.html">Writing</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main class="container">
+ 
+    <div class="essay-hero">
+      <a class="essay-back" href="writing.html">
+        <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Writing
+      </a>
+      <div class="essay-label">Essay &nbsp;·&nbsp; 05</div>
+      <h1>AI in the Workplace: Do We Have the Regulations We Need?</h1>
+      <div class="essay-meta">
+        <span class="essay-date">Written April 2026 &middot; Edited July 2026</span>
+        <div class="tags">
+          <span class="tag">AI Safety</span>
+          <span class="tag">Regulation</span>
+          <span class="tag">Cybersecurity</span>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="essay-body">
+
+      <h2>Introduction</h2>
+
+      <p>ClearCare is an AI-powered health literacy tool that translates clinical and lab reports into plain-language, multilingual summaries for patients navigating healthcare independently, often for the first time. Health tools utilizing AI sit at a genuine intersection of opportunity and risk: they can make medical information accessible and comprehensible to patients, but that same accessibility raises the stakes if the information is wrong or the data behind it isn’t protected. This audit exists for two audiences: my team, to break down concrete gaps in our work, and anyone evaluating ClearCare’s AI use.</p>
+      <p>This audit applies the End-to-End Socio-Technical Algorithmic Audit (E2EST/AA) checklist developed by Dr. Gemma Galdon Clavell for the European Data Protection Board’s Support Pool of Experts Programme (Galdon Clavell, 2023). I also incorporate two supplementary lenses to shape and verify findings. The first is drawn from Tomei and Klein Teeselink’s Verification Method Spectrum (2026), which classifies ClearCare’s core functions by how directly checkable each one is. This includes, for example, whether an output can be confirmed against a source document, or whether it requires expert judgement to verify. The second is drawn from Longpre et al’s (2025) argument surrounding the limitations of in-house evaluation. Due to the nature of this audit being a self-assessment, there is a real limitation on the rigor or strictness of the utilized checklist.</p>
+
+      <h2>Data Audit</h2>
+
+      <p>ClearCare takes in uploaded clinical and lab reports, parses (allows for user editing) and then summarizes the data into simpler, more comprehensive terms. The source data comes from reports uploaded by the user. However, there are many gaps in this sector as we do not document how large these attachments can be, how long they’re stored and where. Another large gap or risk which needs to be considered is encryption and overall privacy protection. The high sensitivity of this data makes the need for high data protections even higher especially as HIPAA compliance is also federally required. Since ClearCare isn’t utilizing its own AI model and is sending the data through a separate LLM we need to consider whether that provider is HIPAA-eligible and covered under a signed Business Associate Agreement (BAA). Without one, any protected health information leaving our system creates an unresolved compliance gap not just theoretical. The current mitigation we have in place is our scanner does not pick up name information of the user thus their identity stays protected in that sense. And finally in terms of access control, since we do not have a login/user profile system set up we also do not have any stored data. One component of the Data Audit left unaddressed is bias control: whether the peer-reviewed sources in ClearCare’s explanations represent the populations most likely to use the product. The lack of personalization is a prominent gap existing in ClearCare with no solution drafted thus far. Our immediate next steps consist of working to make our model HIPAA friendly, working around creating a login so our users can create an accurate health profile and receive the most accurate and comprehensible info to have the most medical autonomy possible.</p>
+
+      
+      <h2>Model Audit</h2>
+
+      <p>ClearCare currently can generate a plain-language summary of an uploaded report, support multilingual translation, and produce colorblind aided data visualizations of health indicators with citations back to peer-reviewed research or clinical guidelines. Due to the nature of the explanations, solely being simplified information of what was already given this is a genuine strength of ClearCare. Accuracy validation is incredibly vital, especially in terms of medical information thus the given reports are all cited and linked to other outside sources. The multilingual quality and colorblindness aid were tested across a large number of users and report to be quite robust. </p>
+
+      <p>Applying Tomei and Klein Teeselink’s verification spectrum here can be useful when it comes to breaking down and categorizing the work of ClearCare and claims this audit is making. Extracting a value from the lab reports would be deemed at the high-verifiability end as it is directly checkable against the original source document. The editable parsing step makes this an effective safeguard for that specific function as well. Conversely, the plain-language explanation of the results sits quite far towards the low-verifiability end as there’s no equally direct method to confirm it’s medically accurate without clinical review. This AI audit reveals a gap between design intent and validated performance, as the system lacks documentation regarding its handling of malformed reports, unusual lab panels, and edge cases.</p>
+
+
+      <h2>Deployment Audit</h2>
+
+      <p>ClearCare’s mission is to increase medical autonomy across underprivileged demographics and young adults navigating healthcare independently. The intended context is well-defined for the primary use case, a patient reviewing their own report, and this is reinforced by human-oversight mechanisms built into the experience; an editable checkpoint lets users correct any misread values prior to the generated summary. There are also several disclaimers across various touchpoints and features such as the “Prepare Questions” and “Contact My Doctor.” However, components of the deployment and readiness of this application remain undocumented and/or entirely missing. There’s no formal assessment of this AI-based approach against alternatives, and the risks it poses to users’ privacy and rights go undocumented. Data storage limitations are undefined, since without a login system there's currently little persistent data to limit. However, that will need a real retention policy once accounts exist. On the traceability and security side, the editable parsing step functions as a genuine, documented mechanism for human intervention, but there's no equivalent on the output side. There is no method for a user to flag a generated summary as wrong after the fact and of course encryption and broader security measures remain undocumented.  We also haven't built a process for gathering ongoing feedback from our core user groups: 18-to-26-year-olds, non-English speakers, and users with low health literacy. </p>
+      
+
+      
+      <h2>Conclusion</h2>
+
+      <p>This is a self-audit, executed by ClearCare’s project team Infosense, and its Product Manager Pooja Gottepu rather than an independent third party. Longpre et al. (2025) argue that in-house evaluation carries a structural limitation regardless of how rigorous the checklist applied, since the auditor and the audited share the same incentives. That applies directly here: an external audit could test explanation accuracy against real clinical cases and verify security claims directly, rather than relying on team-reported documentation.</p>
+    
+      <p> More specifically, Longpre et al.'s three proposed interventions: standardized flaw reports, safe-harbor disclosure programs, and shared coordination infrastructure all describe the kind of external accountability structure this self-audit cannot substitute for. This document identifies where those interventions would apply, but identifying the gap is not the same as closing it. A structured, protected, cross-provider reporting system is something ClearCare would need to build or plug into, not something a single internal audit can create on its own. </p>
+
+     <div class="essay-references">
+  <h2>References</h2>
+  <p>Galdon Clavell, G. (2023, January). <em>AI auditing: Checklist for AI auditing.</em> European Data Protection Board, Support Pool of Experts Programme. <a href="https://www.edpb.europa.eu/system/files/2024-06/ai-auditing_checklist-for-ai-auditing-scores_edpb-spe-programme_en.pdf" target="_blank">View PDF</a></p>
+  <p>Longpre, S., Klyman, K., Liang, P., Narayanan, A., Carlini, N., et al. (2025). <em>In-house evaluation is not enough: Towards robust third-party flaw disclosure for general-purpose AI.</em> arXiv. <a href="https://arxiv.org/abs/2503.16861" target="_blank">View paper</a></p>
+  <p>Tomei, P. M., &amp; Klein Teeselink, B. (2026, May). <em>What jobs can AI learn? Measuring exposure by reinforcement learning.</em> arXiv. <a href="https://arxiv.org/abs/2605.02598" target="_blank">View paper</a></p>
+</div>
+
+  
+ 
+    </div>
+ 
+  </main>
+ 
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Pooja Gottepu</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+ 
+</body>
+</html>
