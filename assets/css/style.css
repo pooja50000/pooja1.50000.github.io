@@ -371,3 +371,7 @@ h2 { color: #ffffff; }
   word-break: break-all;
 }
 .essay-references a:hover { color: #fff; }
+
+.essay-whitebox p {
+  color: #000000
+}
