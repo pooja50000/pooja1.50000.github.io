@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Auditing: Further Comprehension and Solution Ideation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">Pooja</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutme.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a class="active" href="writing.html">Writing</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <div class="essay-hero">
+      <a class="essay-back" href="writing.html">
+        <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Writing
+      </a>
+      <div class="essay-label">Essay &nbsp;·&nbsp; 07</div>
+      <h1>AI Auditing: Further Comprehension and Solution Ideation</h1>
+      <div class="essay-meta">
+        <span class="essay-date">Written August 2026</span>
+        <div class="tags">
+          <span class="tag">AI Safety</span>
+          <span class="tag">Auditing</span>
+          <span class="tag">Governance</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="essay-body">
+
+      <p><em>Pooja Gottepu &nbsp;·&nbsp; University of Washington &nbsp;·&nbsp; Independent Research &nbsp;·&nbsp; August 2026</em></p>
+
+      <h2>Abstract</h2>
+
+      <p>Artificial intelligence auditing is one of the most critical yet underdeveloped areas of AI governance. It is the mechanism through which safety standards meet deployment in practice; it is the area of true governance and change. This paper delves into concepts of artificial intelligence auditing such as limitations of current AI audit landscapes, its access levels, structural limitations and proposed paths forward. Drawing primarily on Casper et al's Frontier AI Auditing: Toward Rigorous Third-Party Assessment (2026) and Black-Box Access is Insufficient for Rigorous Audits (2024), this paper details the existing access framework and later draws connection to the proposed AI Assurance Levels. Building on this foundation, this paper uses Khanna's (2025) analysis regarding AI's cross-border nature and Figueroa's (2025) argument of while international may be necessary it faces drawbacks. This combined research proposes three solution: a liaison model replacing periodic audits with entire internal-external teams, tiered audits and finally international legal enforcement in the AI sector.</p>
+
+      <p><em>Keywords: AI auditing, black-box access, white-box access, AI assurance levels, third-party assessment, AI governance, frontier AI, international AI regulation</em></p>
+
+      <h2>Introduction</h2>
+
+      <p>Artificial intelligence is no longer a distant technological frontier, it is embedded across majority sectors from healthcare, legal system, entertainment, social media and everyday communication. However, the mechanisms designed to ensure these systems' safety severely lack governance and remain critically underdeveloped. AI auditing, the process through which safety standards are meant to meet deployment currently fall and this paper navigates through what more rigorous systems require. Creating proper infrastructure for AI auditing is not something to be overlooked as it is a needed foundation of governance needed to ensure AI safety.</p>
+
+      <h2>Current Audit Access Levels</h2>
+
+      <p>There are different levels of audits with varying degrees of access, rigor, challenges, benefits and more. The current operating framework: the work with black-box, gray-box and white-box represents the different ranks of access levels auditors work with paralleling to the AI Assurance Levels (AAL-1 through AAL-4) proposed by Casper et al. (2026) in Frontier AI Auditing: Toward Rigorous Third-Party Assessment.</p>
+
+      <p>Black box auditing is the current default of the industry. Auditors send inputs and receive outputs working with an entirely opaque system of weights, training data and internal reasoning. Black box audits discover surface-level harmful outputs, working levels of content filters and can determine known attack patterns. This system falls short when deducing evaluation gaming, hidden capabilities, biases in training data, workings of various safety measures and of course risks which only emerge under specific conditions.</p>
+
+      <p>Gray-box auditing is a curated and voluntary process in which the company grants partial access. Auditors receive documentation, conduct interviews and collect some internal data. However gray box audits are heavily limited by what the company chooses to reveal. Thus, the assessment of organizational practices may be completed, however true verification is not possible. There's an array of issues from well-intentioned companies which may miss their own blind spots to companies which deliberately curate disclosures to conceal exactly what auditors need to review.</p>
+
+      <p>Finally white box auditing is the most rigorous and thorough form of auditing. It requires full access to model weights, training data, architecture, internal reasoning processes, governance documents, and authority to investigate anything. This is the only level at which you can make definitive claims regarding safety verification not "we did not find dangerous capabilities" but "we can confirm no dangerous capabilities exist" (Casper et al., 2024).</p>
+
+      <h2>AI Assurance Levels</h2>
+
+      <p>While black-box, gray-box, and white-box access describe the current practices of the AI audit world, Casper et al. (2026) propose a different more structured approach. Taking inspiration from the finance and cybersecurity industries which have long operated under tiered audit requirements, they proposed AI Assurance Levels for AI audits. Spanning across four levels these AI Assurance Levels would provide as a framework for the required depth of auditing to be proportional to deducted risk levels. This creates a transparent and enforceable standard which shifts AI auditing from voluntary and potentially cursory to structured and accountable.</p>
+
+      <p>Starting with AI Assurance Level 1, one of limited assurance. It involves a time bound engagement which averages around a few weeks in which the auditor interacts with the model (multiple model versions) through its public API- the way any average user would. The auditor may also receive a limited amount of non-public information often surrounding a system card or summary of internal safety testing.</p>
+
+      <p>Next AI Assurance Level 2 which is significantly more thorough. AAL-2 lasts several months and doesn't solely evaluate the model but also the company's broader safety practices. This parallels the gray box access as the auditor receives internal documentation including unredacted safety cases such as the company's own internal assessments of potential risks and plans of risk management. AAL-2 also includes staff interviews and conducts continuous monitoring rather than a one-time risk assessment.</p>
+
+      <p>Thirdly, AI Assurance Level 3 which consists of a multi-year relationship with the company. The lead auditor maintains continuous oversight throughout with various subcontractors contributing verification across numerous areas. This is white-box level of access, the auditor has full visibility of the model's internal architecture, weights and processes along with the ability and authority to examine any area of concern at any time.</p>
+
+      <p>The most rigorous of all: AI Assurance Level 4, the highest assurance verification level. To differentiate from AAL-3, it is specifically designed to detect active deception attempts and techniques. AAL-4 is not solely to assess a cooperative company but also to uncover any issues the company may be deliberately concealing. The auditor operates with full information about the company's systems, computing hardware and governance structure.</p>
+
+      <h2>The Current State of Third-Party Assessment</h2>
+
+      <p>Casper et al. (2026) identify seven key dimensions of third-party assessments, current limitations and vision for the future: reporting, access, rigor, standardization, continuous monitoring, scope, scale, independence and ecosystem maturity.</p>
+
+      <p>AI audits of genuine impact require combine effort from both private and government sectors, neither alone is sufficient. Casper et al. (2026) state governments cannot keep up technically or financially against the private sector. However, they are irreplaceable as they have a vital role to play in terms of setting baseline standards, maintaining legalities and ensuring accountability they lack in terms expertise at scale, adapting to new architectures or matching the pace of innovation. Involving government auditing calls for three challenges: building and retaining technical expertise at scale, adapting to rapidly changing model architectures and matching the pace of private sector innovation.</p>
+
+      <h2>Proposed Solutions</h2>
+
+      <p>The solution is neither to invest further in government-led technical auditing nor to leave private sector audits with no oversight. Instead, Casper et al. (2026) propose a distributed model. Private sectors would work with government-set standards when conducting their audits and distribute governance and study risk analysis with government authority behind them. Rather than viewing a path for AI auditing as a straight line to success consider it as a map. A diverse network of interconnected components all working towards the goal of safe AI deployment and usage.</p>
+
+      <p>First rather than periodic third-party audits, each AI company should maintain an internal team which works alongside an independent external auditing team. This addresses failures Casper et al. document by assessing beyond one-off snapshots and the scope is not limited to the technology but also the entire company. A permanent internal-external team can continuously monitor, reassess, evaluate systems and company's organizational behavior (safety culture, platform level controls, incident response) and more.</p>
+
+      <p>Another large factor of current AI auditing is how not every AI system requires the same depth of auditing as not every AI system carries the same level of risk. For example, consumer entertainment AI usage would pose vastly different risks than any artificial intelligence in the medical field. Current auditing practices are at the black-box level, voluntary participation with inconsistent information especially surrounding risk level. While lower stake frontier AI may utilize AAL-1, domains of higher stakes require AAL-3. This enables more detailed comprehension of how AI systems behave in high-stakes contexts, stronger protection for the populations most affected by those systems, and clearer accountability frameworks for the organizations deploying them.</p>
+
+      <p>The most ambitious yet perhaps the most necessary solution is international legal coordination mandating white box access as a condition of deployment for frontier AI systems. Companies resist white-box access citing trade secrets and competitive disadvantages. These concerns are real but also structurally convenient as opacity serves company interests more than safety interests. This would allow researchers worldwide to build on each other's findings, identify risks before they become incidents and perhaps even help further artificial intelligence more than ever before. In many ways this mirrors the logic of thetical hacking in cybersecurity. This may make the field safer not by keeping vulnerabilities secret but by addressing them openly and creating structures systems. International law may be a vital part of this transition into an AI heavy world.</p>
+
+      <p>However, the path to international coordination is neither straightforward nor guaranteed and Khanna (2025) and Figueroa (2025) paint clearer pictures of its limitations. The former identified how too rigid frameworks stifle innovation while frameworks too permissive risk enabling serious harm and the latter argues how international law faces high structural drawbacks limiting its effectiveness. Khanna details the current jurisdictional nightmare of AI causing harm across nations simultaneously which no singular nation can resolve alone. An international framework is a must. Perhaps rather than solely implementing Khanna's suggestion of a binding international AI treaty of unified standards for algorithmic fairness, data protection and an independent monitoring agency we add on Figueroa's take of understanding international law will be part of the solution but not the solution. Figueroa highlights the disproportion between speed of AI development and pace of international lawmaking, jurisdictional fragmentation and the outsized influence of technology corporations operating beyond state reach.</p>
+
+      <h2>Conclusion</h2>
+
+      <p>AI auditing is not a solved problem. It is a current existing framework which needs vast review and additions as its current state falls significantly short of what safe AI deployment requires. The black-box access rank dominates the industry when it requires closer to white-box level verification. Government cannot keep pace technically and international law cannot enforce against corporations whose resources exceed those of the states meant to regulate them.</p>
+
+      <p>The proposed solutions: a permanent internal-external liaison model, tiered audit requirements to match deployment risk and international legal coordination mandating white-box access. These solutions are interdependent as the liaison model addresses continuity and scope. Tiered audit requirements address proportionality and international coordination addresses jurisdictional fragmentation allowing companies to escape accountability by operating across borders.</p>
+
+      <div class="essay-references">
+        <h2>References</h2>
+        <p>Casper, S., et al. (2026). Frontier AI auditing: Toward rigorous third-party assessment. <em>arXiv.</em> <a href="https://arxiv.org/pdf/2601.11699" target="_blank">https://arxiv.org/pdf/2601.11699</a></p>
+        <p>Casper, S., et al. (2024). Black-box access is insufficient for rigorous AI audits. <em>arXiv.</em> <a href="https://arxiv.org/pdf/2401.14446" target="_blank">https://arxiv.org/pdf/2401.14446</a></p>
+        <p>Figueroa, M. (2025, January 14). The drawbacks of international law in governing artificial intelligence. <em>Society of Computers and Law.</em> <a href="https://www.scl.org/the-drawbacks-of-international-law-in-governing-artificial-intelligence/" target="_blank">https://www.scl.org/the-drawbacks-of-international-law-in-governing-artificial-intelligence/</a></p>
+        <p>Khanna, D. (2025, February 7). The role of international law in governing artificial intelligence: Balancing innovation and human rights. <em>Indian Journal of Law and Legal Research, VII</em>(VI). <a href="https://3fdef50c-add3-4615-a675-a91741bcb5c0.usrfiles.com/ugd/3fdef5_75e03ec8ecc849cba6e48e336282c612.pdf" target="_blank">View PDF</a></p>
+        <p>Longpre, S., et al. (2025). In house evaluation is not enough: Towards robust third-party flaw disclosure for general-purpose AI. <em>arXiv.</em> <a href="https://arxiv.org/pdf/2503.16861" target="_blank">https://arxiv.org/pdf/2503.16861</a></p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Pooja Gottepu</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
