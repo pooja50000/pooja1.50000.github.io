@@ -375,3 +375,9 @@ h2 { color: #ffffff; }
 .essay-whitebox p {
   color: #000000
 }
+
+.card-cta,
+.pdf-cta {
+  text-decoration: none;
+  color: inherit;
+}
